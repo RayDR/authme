@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: authme-mongo
+    restart: always
+    ports:
+      - '27017:27017' # Exponer MongoDB en el puerto 27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin # Usuario administrador
+      MONGO_INITDB_ROOT_PASSWORD: password123 # Contraseña
+    volumes:
+      - mongo-data:/data/db # Persistencia de datos
+
+volumes:
+  mongo-data:
